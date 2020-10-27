@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<title>Upload Data.csv</title>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function (e) {
+
+			$('#upload').on('click', function () {
+				var form_data = new FormData();
+				form_data.append('file', $('#uploadfile').prop('files')[0]);
+
+				if ($('#uploadfile').prop('files')[0].name.toLowerCase()!="data.csv") {
+					alert("File name should be data.csv");
+				}
+				else {
+					$(function() {
+						$.ajax({
+							type: 'POST',
+							url:  'https://backend-30daysofgcp.herokuapp.com/uploadData',
+							data: form_data,
+							contentType: false,
+							cache: false,
+							processData: false,
+							success: function(data) {
+								alert('Data Updated Successfully.')
+							},
+						})
+					});
+				}
+			});
+		});
+	</script>
+</head>
+<body style="margin-top: 10%;">
+	<center>
+		<h1>Upload data.csv</h1>
+		<dl>
+			<p>
+				<input type="file" id="uploadfile" name="NewCsvUpload">
+				<button id="upload">Upload</button>
+			</p>
+		</dl>
+	</center>
+</body>

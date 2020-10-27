@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- Favicon icon -->
+	<link rel="icon" type="image/png" sizes="16x16" href="cloud.png">
+	<title>30 Days of GCP - RCOEM</title>
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap4.css">
+	
+
+	<style type="text/css">
+		@media only screen and (min-device-width : 768px) {
+			#bannerImage {
+				width: 50%;
+			}
+		}
+
+		footer {
+			display: block;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			color: black;
+			font-size: 20px;
+		}
+
+		td {
+			max-width: 25%;
+			width: 25%;
+		}
+
+	</style>
+
+</head>
+
+<body class="skin-blue fixed-layout">
+    <!-- <div class="preloader">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">DSC RCOEM</p>
+        </div>
+    </div> -->
+
+    <div id="main-wrapper">
+
+    	<nav class="navbar navbar-expand-lg navbar-dark text-white bg-dark">
+    		<a class="navbar-brand" href="#" style="margin-left: 5%;">
+    			<b><img src="https://i.imgur.com/jMPjg8G.png" alt="homepage" class="light-logo" width="40" height="40"/> </b>
+    			<span style="font-weight: bold;">  DSC RCOEM  </span>
+    		</a>
+
+    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    			<span class="navbar-toggler-icon"></span>
+    		</button>
+
+    		<div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-right: 5%;">
+    			<ul class="navbar-nav mr-auto"></ul>
+    			<ul class="navbar-nav my-lg-0">
+    				<li>
+    					<a href="https://events.withgoogle.com/30daysofgooglecloud/" style="color: white; font-weight: bold; font-size: 20px;" target="_blank">Website</a>
+    				</li>
+    				&nbsp;&nbsp;&nbsp;&nbsp;
+    				<li>
+    					<a href="https://dsc.community.dev/shri-ramdeobaba-college-of-engineering-management/" target="_blank">
+    						<img class="icon" id="dev" src="https://www.dscsdmc.org/img/logo.png" alt="" width="50px">
+    					</a>
+    				</li>
+    			</ul>
+    		</div>
+    	</nav>
+
+    	<div>
+    		<div class="container-fluid my-4">
+    			<div class="row my-3">
+    				<div class="col-12">
+    					<div class="card">
+    						<div class="card-body">
+    							<center><img src="banner.png" id="bannerImage" style="max-width: 100%;"></center>
+    							<center><h2 class="card-title">Leaderboard</h2></center>
+    							<div class="table-responsive m-t-40">
+    								<table id="employees" class="display nowrap table table-striped table-bordered dt-responsive" cellspacing="0" style="max-width: 100%">
+    								</table>
+    							</div>
+    						</div>
+    					</div>
+
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+    <footer style="margin-bottom: 15px;">
+    	Web designed by: 
+    	<a href="http://www.rishabhrathi.co" target="_blank">Rishabh Rathi</a>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
+    <script type="text/javascript">
+
+    	$(document).ready(function() {
+
+    		$.ajax({
+    			type: "GET",
+    			url: "https://backend-30daysofgcp.herokuapp.com/",
+    			dataType: "json",
+    			responsive: true,
+    			success: function(data) {
+    				var dataSet = data["data"];
+
+    				$('#employees').DataTable({
+    					"pageLength": 50,
+    					"data": dataSet,
+    					"columns": [
+	    					{ title: "Name" },
+	    					{ title: "Total Quests"},
+	    					{ title: "Track 1 Quests" },
+	    					{ title: "Track 2 Quests" },
+    					],
+    					"order": [[ 1, "desc" ]],
+    				});
+    			}
+    		});
+    	});
+
+    </script>
+
+</body>
+
+</html>
