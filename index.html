@@ -18,11 +18,6 @@
 	
 
 	<style type="text/css">
-		@media only screen and (min-device-width : 768px) {
-			#bannerImage {
-				width: 50%;
-			}
-		}
 
 		footer {
 			display: block;
@@ -38,47 +33,69 @@
 			width: 25%;
 		}
 
+		#leftImage, #rightImage {
+			max-width: 100%;
+		}
+
+		.preloader {
+			visibility: visible;
+		}
+
+		@media only screen and (min-device-width : 768px) {
+			#bannerImage {
+				width: 50%;
+			}
+		}
+
+		@media only screen and (min-device-width : 768px) {
+			#leftImage, #rightImage {
+				max-width: 50%;
+			}
+		}
+
 	</style>
 
 </head>
 
 <body class="skin-blue fixed-layout">
-    <!-- <div class="preloader">
+    
+    <div class="preloader">
         <div class="loader">
             <div class="loader__figure"></div>
             <p class="loader__label">DSC RCOEM</p>
         </div>
-    </div> -->
+    </div>
 
     <div id="main-wrapper">
 
     	<nav class="navbar navbar-expand-lg navbar-dark text-white bg-dark">
-    		<a class="navbar-brand" href="#" style="margin-left: 5%;">
+    		<a class="navbar-brand" href="https://dsc.community.dev/shri-ramdeobaba-college-of-engineering-management/" style="margin-left: 2%;">
     			<b><img src="https://i.imgur.com/jMPjg8G.png" alt="homepage" class="light-logo" width="40" height="40"/> </b>
     			<span style="font-weight: bold;">  DSC RCOEM  </span>
     		</a>
 
-    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    			<span class="navbar-toggler-icon"></span>
-    		</button>
-
-    		<div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-right: 5%;">
-    			<ul class="navbar-nav mr-auto"></ul>
-    			<ul class="navbar-nav my-lg-0">
-    				<li>
-    					<a href="https://events.withgoogle.com/30daysofgooglecloud/" style="color: white; font-weight: bold; font-size: 20px;" target="_blank">Website</a>
-    				</li>
-    				&nbsp;&nbsp;&nbsp;&nbsp;
-    				<li>
-    					<a href="https://dsc.community.dev/shri-ramdeobaba-college-of-engineering-management/" target="_blank">
-    						<img class="icon" id="dev" src="https://www.dscsdmc.org/img/logo.png" alt="" width="50px">
-    					</a>
-    				</li>
-    			</ul>
-    		</div>
+    		<a href="#leaderboard" style="color: white; font-weight: bold; font-size: 18px;"> Leaderboard </a>
     	</nav>
 
-    	<div>
+    	<div id="wall-of-fame"><!-- 
+    		<div class="container-fluid my-4">
+    			<div class="row my-3">
+    				<div class="col-12">
+    					<div class="card">
+    						<div class="card-body">
+
+   								<img src="gcloud.jpg" id="leftImage">
+   								<img src="" id="rightImage">
+    							<hr/>
+
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	 --></div>
+
+    	<div id="leaderboard">
     		<div class="container-fluid my-4">
     			<div class="row my-3">
     				<div class="col-12">
@@ -104,7 +121,7 @@
     	<a href="http://www.rishabhrathi.co" target="_blank">Rishabh Rathi</a>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
     <script type="text/javascript">
@@ -120,7 +137,7 @@
     				var dataSet = data["data"];
 
     				$('#employees').DataTable({
-    					"pageLength": 50,
+    					"pageLength": 53,
     					"data": dataSet,
     					"columns": [
 	    					{ title: "Name" },
@@ -132,6 +149,9 @@
     				});
     			}
     		});
+
+    		$('.preloader')[0].style.visibility = "hidden";
+
     	});
 
     </script>
