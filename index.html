@@ -35,7 +35,7 @@
 
 		#leftImage, #rightImage {
 			max-width: 100%;
-		}
+		} 
 
 		.preloader {
 			visibility: visible;
@@ -49,7 +49,7 @@
 
 		@media only screen and (min-device-width : 768px) {
 			#leftImage, #rightImage {
-				max-width: 50%;
+				max-width: 49%;
 			}
 		}
 
@@ -77,7 +77,7 @@
     		<a href="#leaderboard" style="color: white; font-weight: bold; font-size: 18px;"> Leaderboard </a>
     	</nav>
 
-    	<div id="wall-of-fame"><!-- 
+    	<div id="wall-of-fame">
     		<div class="container-fluid my-4">
     			<div class="row my-3">
     				<div class="col-12">
@@ -85,7 +85,7 @@
     						<div class="card-body">
 
    								<img src="gcloud.jpg" id="leftImage">
-   								<img src="" id="rightImage">
+   								<img src="wall_of_fame.jpg" id="rightImage" style="margin-left: 1%;">
     							<hr/>
 
     						</div>
@@ -93,7 +93,7 @@
     				</div>
     			</div>
     		</div>
-    	 --></div>
+    	</div>
 
     	<div id="leaderboard">
     		<div class="container-fluid my-4">
@@ -110,7 +110,7 @@
     						</div>
     					</div>
 
-    				</div>
+    				</div>3
     			</div>
     		</div>
     	</div>
@@ -137,7 +137,7 @@
     				var dataSet = data["data"];
 
     				$('#employees').DataTable({
-    					"pageLength": 53,
+    					"pageLength": 29,
     					"data": dataSet,
     					"columns": [
 	    					{ title: "Name" },
